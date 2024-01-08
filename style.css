@@ -175,3 +175,29 @@ button:active {
     display:inline-block;
     outline: none;
 }
+
+@media only screen and (max-width: 768px) {
+    .header {
+        padding: 23px 20px;
+    }
+
+    .main-div {
+        width: 90%;
+        left: 5%;
+    }
+
+    .wrapper {
+        width: 90%; 
+        margin: 0 auto;
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 20px; 
+    }
+
+    .add-book {
+        font-size: 16px; 
+        margin-top: 20px; 
+    }
+}
