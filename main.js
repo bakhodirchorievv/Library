@@ -34,7 +34,8 @@ submitBtn.addEventListener("click", ()=> {
     let newH2 = document.createElement("h2")
     newDiv.append(newH2)
     newH2.className = "table-title"
-    newH2.textContent = titleInput.value
+    let quote = `"`
+    newH2.textContent = quote.concat(titleInput.value + `"`) 
     let firstNewP = document.createElement("p")
     newDiv.append(firstNewP)
     firstNewP.className = "author"
@@ -100,7 +101,8 @@ submitBtn.addEventListener("click", ()=> {
     let newH2 = document.createElement("h2")
     newDiv.append(newH2)
     newH2.className = "table-title"
-    newH2.textContent = titleInput.value
+    let quote = `"`
+    newH2.textContent = quote.concat(titleInput.value + `"`)
     let firstNewP = document.createElement("p")
     newDiv.append(firstNewP)
     firstNewP.className = "author"

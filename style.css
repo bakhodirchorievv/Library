@@ -150,13 +150,16 @@ button:active {
 }
 .read {
     background-color: lime;
+    user-select: none;
 }
 .not-read {
     background-color: red;
     color: white;
+    user-select: none;
 }
 .remove {
     background-color: lightgrey;
+    user-select: none;
 }
 .table-title {
     margin-bottom: 20px;
