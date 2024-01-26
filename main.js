@@ -20,9 +20,9 @@ cancelBtn.addEventListener("click", ()=> {
     mainDiv.classList.remove("add-to-main-div")
     body.classList.remove("add-to-body")
     header.classList.remove("add-to-header")
-    titleInput.value = ""
-    authorInput.value = ""
-    pagesInput.value = ""
+    // titleInput.value = ""
+    // authorInput.value = ""
+    // pagesInput.value = ""
 })
 
 submitBtn.addEventListener("click", ()=> {
