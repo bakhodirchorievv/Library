@@ -62,8 +62,10 @@ function saveOnStorage() {
             newButton.classList.toggle("read")
             if (newButton.innerText == "Read") {
                 newButton.textContent = "Not Read"
+                book.isRead = false;
             } else {
                 newButton.textContent = "Read"
+                book.isRead = true;
             }
             updateLocalStorage()
         })

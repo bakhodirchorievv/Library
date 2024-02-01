@@ -7,9 +7,6 @@ body {
     font-family: sans-serif;
     background-color: #aaa;
 }
-.add-to-body {
-    background-color: rgba(0, 0, 0, 0.6)
-}
 .header {
     display: flex;
     justify-content: space-between;
@@ -18,9 +15,6 @@ body {
     background-color: white;
     user-select: none;
     background-color: aquamarine;
-}
-.add-to-header {
-    filter: brightness(0.6);
 }
 button {
     cursor: pointer;
@@ -67,7 +61,6 @@ button:active {
 }
 .main-title {
     margin-bottom: 17px;
-    /* font-size: 18px; */
     font-weight: 750;
 }
 .main-input {
@@ -136,9 +129,6 @@ button:active {
     border-radius: 8px;
     margin-top: 0px;
     box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
-}
-.add-to-table {
-    filter: brightness(0.6);
 }
 .table-btn {
     display: block;
