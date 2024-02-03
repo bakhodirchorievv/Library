@@ -8,6 +8,8 @@ let authorInput = document.querySelector(".second")
 let pagesInput = document.querySelector(".third")
 let checkbox = document.querySelector(".checkbox-input")
 let overlay = document.querySelector(".overlay")
+let searchInput = document.querySelector(".search-input")
+let searchInput2 = document.querySelector(".search-input2")
 
 let BOOKS = JSON.parse(localStorage.getItem("BOOKS")) || []
 
@@ -15,10 +17,23 @@ function updateLocalStorage() {
     localStorage.setItem("BOOKS", JSON.stringify(BOOKS))
 }
 
-function saveOnStorage() {
+searchInput.addEventListener("input", () => {
+    let searchValue = searchInput.value.toLowerCase();
+    let filteredBooks = BOOKS.filter(book => book.author.toLowerCase().includes(searchValue));
+    saveOnStorage(filteredBooks);
+})
+searchInput2.addEventListener("input", () => {
+    let searchValue = searchInput2.value.toLowerCase();
+    let filteredBooks = BOOKS.filter(book => book.title.toLowerCase().includes(searchValue));
+    saveOnStorage(filteredBooks);
+})
+
+function saveOnStorage(filteredBooks) {
     wrapper.innerHTML = ""
 
-    BOOKS.forEach((book) => {
+    let booksToDisplay = filteredBooks || BOOKS
+
+    booksToDisplay.forEach((book) => {
         let newDiv = document.createElement("div")
         wrapper.append(newDiv)
         newDiv.className = "table"
@@ -50,6 +65,7 @@ function saveOnStorage() {
         newButton2.textContent = "Remove"
     
         newButton2.addEventListener("click", (event) => {
+            if(!confirm("Do you want to delete the book?")) return;
             let remove = event.target.parentElement
             wrapper.removeChild(remove)
             const indexToRemove = BOOKS.findIndex(b => b === book)
