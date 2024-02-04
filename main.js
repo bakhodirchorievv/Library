@@ -11,6 +11,7 @@ let overlay = document.querySelector(".overlay")
 let searchInput = document.querySelector(".search-input")
 let searchInput2 = document.querySelector(".search-input2")
 
+
 let BOOKS = JSON.parse(localStorage.getItem("BOOKS")) || []
 
 function updateLocalStorage() {
@@ -18,14 +19,12 @@ function updateLocalStorage() {
 }
 
 searchInput.addEventListener("input", () => {
-    let searchValue = searchInput.value.toLowerCase();
-    let filteredBooks = BOOKS.filter(book => book.author.toLowerCase().includes(searchValue));
-    saveOnStorage(filteredBooks);
+    let filteredBooks = BOOKS.filter(book => book.author.toLowerCase().includes(searchInput.value.toLowerCase()))
+    saveOnStorage(filteredBooks)
 })
 searchInput2.addEventListener("input", () => {
-    let searchValue = searchInput2.value.toLowerCase();
-    let filteredBooks = BOOKS.filter(book => book.title.toLowerCase().includes(searchValue));
-    saveOnStorage(filteredBooks);
+    let filteredBooks = BOOKS.filter(book => book.title.toLowerCase().includes(searchInput2.value.toLowerCase()))
+    saveOnStorage(filteredBooks)
 })
 
 function saveOnStorage(filteredBooks) {
