@@ -44,7 +44,15 @@ function saveOnStorage(filteredBooks) {
         let firstNewP = document.createElement("p")
         newDiv.append(firstNewP)
         firstNewP.className = "author"
-        firstNewP.textContent = book.author
+        let authorName = ""
+        for (let i = 0; i < book.author.length; i++) {
+            if (i == 0 || book.author[i - 1] === " ") {
+                authorName += book.author[i].toUpperCase()
+            } else {
+                authorName += book.author[i]
+            }
+        }
+        firstNewP.textContent = authorName
         let secondNewP = document.createElement("p")
         newDiv.append(secondNewP)
         secondNewP.className = "pages"
