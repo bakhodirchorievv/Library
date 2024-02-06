@@ -27,10 +27,20 @@ searchInput2.addEventListener("input", () => {
     saveOnStorage(filteredBooks)
 })
 
+let determine;
+
 function saveOnStorage(filteredBooks) {
     wrapper.innerHTML = ""
 
-    let booksToDisplay = filteredBooks || BOOKS
+    // let booksToDisplay = filteredBooks || BOOKS
+    
+    if (filteredBooks) {
+        booksToDisplay = filteredBooks
+        determine = "f"
+    } else {
+        booksToDisplay = BOOKS
+        determine = "s"
+    }
 
     booksToDisplay.forEach((book) => {
         let newDiv = document.createElement("div")
@@ -77,6 +87,9 @@ function saveOnStorage(filteredBooks) {
             wrapper.removeChild(remove)
             const indexToRemove = BOOKS.findIndex(b => b === book)
             BOOKS.splice(indexToRemove, 1)
+            if (determine == "s" || filteredBooks.length == BOOKS.length && (BOOKS.length != 2 && filteredBooks.length != 1)) {
+                updateDisplay()
+            }
             updateLocalStorage()
         });
     
@@ -93,7 +106,23 @@ function saveOnStorage(filteredBooks) {
             updateLocalStorage()
         })
     })
+
+    if (determine == "s" || filteredBooks.length == BOOKS.length && (BOOKS.length != 2 && filteredBooks.length != 1)) {
+        updateDisplay()
+    }
+
 }
+
+function updateDisplay () {
+    if (wrapper.childElementCount == 0) {
+        searchInput.style.display = "none"
+        searchInput2.style.display = "none"
+    } else {
+        searchInput.style.display = "inline-block"
+        searchInput2.style.display = "inline-block"
+    }
+}
+
 
 addBook.addEventListener("click", function () {
     mainDiv.classList.add("add-to-main-div")
